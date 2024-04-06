@@ -1,1 +1,1 @@
-# Python-Hackerrank
+# MySQL with Python
