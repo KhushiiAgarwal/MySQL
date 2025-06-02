@@ -1,0 +1,12 @@
+SELECT c.cus_id, c.name, SUM(t.amount) AS total_amount
+FROM customer c
+JOIN transaction t ON c.cus_id = t.cust_id
+GROUP BY c.cus_id, c.name
+HAVING SUM(t.amount) = (
+    SELECT MAX(total_sum)
+    FROM (
+        SELECT SUM(amount) AS total_sum
+        FROM transaction
+        GROUP BY cust_id
+    ) AS sub
+);
