@@ -1,0 +1,3 @@
+SELECT cust_id, MAX(date)  
+FROM Table 
+GROUP BY cust_id;
